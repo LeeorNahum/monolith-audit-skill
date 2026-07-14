@@ -3,7 +3,7 @@ name: "monolith-audit"
 description: "Build or audit a body of work to rigorous, present-day correctness: ground in the live code, verify every external assumption at the source, and eliminate or never introduce anything broken, obsolete, duplicated, incoherent, or worked-around. Runs whole-repo when invoked bare, or appended to a specific task or focus (a feature, fix, subsystem, surface, or file set), where it holds that task and everything in its blast radius to the same standard so the work is done right in one pass rather than patched and audited later. This skill is strictly manual and must only be invoked by name. When invoked, load this skill and follow it for deep, whole-product correctness, cleanliness, and coherence work across backend, data, APIs, protocols, frontend, UI, UX, copy, configuration, environment contracts, integration points, and product flows, or for self-critical building and rewrites validated against up-to-date, authoritative references."
 metadata:
   author: "Leeor Nahum"
-  version: "1.2.0"
+  version: "1.2.1"
 ---
 
 # Monolith Audit
@@ -24,7 +24,7 @@ This skill runs in two modes with the same uncompromising rigor in both.
 - No focus: audit the entire repository, every layer, end to end.
 - A named focus, the task appended to the invocation (a feature, fix, subsystem, surface, or file set): apply this same rigor to that focus and everything in its blast radius, the callers it touches and the contracts it depends on, still judged against the whole product’s current intentionality. Ground and verify before you build, hold every new line to the same standard as the code it joins, and audit as you go rather than patching first and cleaning up later. Doing the task this way means doing it right in one pass.
 
-Scale Step 1 grounding to the mode. A whole-repo run grounds the entire system; a focused run grounds only what its task depends on and deploys, and skips stage-wide promotion the task does not need. Every other step applies in full at the focus’s scope: verify at the source, confirm with subagents, build or fix to the contract, and reconfirm after editing.
+Scale Step 1 grounding to the mode. A whole-repo run grounds the entire system. A focused run grounds only what its task depends on and deploys, and skips stage-wide promotion the task does not need. Every other step applies in full at the focus’s scope: verify at the source, confirm with subagents, build or fix to the contract, and reconfirm after editing.
 
 ## Step 1: Fully Ground Your Work
 

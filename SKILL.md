@@ -1,9 +1,9 @@
 ---
 name: "monolith-audit"
-description: "Build or audit a body of work to rigorous, present-day correctness: ground in the live code, verify every external assumption at the source, and eliminate or never introduce anything broken, obsolete, duplicated, incoherent, or worked-around. Runs whole-repo when invoked bare, or appended to a specific task or focus (a feature, fix, subsystem, surface, or file set), where it holds that task and everything in its blast radius to the same standard so the work is done right in one pass rather than patched and audited later. This skill is strictly manual and must only be invoked by name. When invoked, load this skill and follow it for deep, whole-product correctness, cleanliness, and coherence work across backend, data, APIs, protocols, frontend, UI, UX, copy, configuration, environment contracts, integration points, and product flows, or for self-critical building and rewrites validated against up-to-date, authoritative references."
+description: "Build or audit a body of work to rigorous, present-day correctness: ground in the live code, verify every external assumption at the source, and eliminate or never introduce anything broken, obsolete, duplicated, incoherent, or worked-around. Runs whole-repo when invoked bare, or appended to a specific task or focus (a feature, fix, subsystem, surface, or file set), where it holds that task and everything in its blast radius to the same standard so the work is done right in one pass rather than patched and audited later. This skill is strictly manual and must only be invoked by name, Monolith Audit (MA). When invoked, load this skill and follow it for deep, whole-product correctness, cleanliness, and coherence work across backend, data, APIs, protocols, frontend, UI, UX, copy, configuration, environment contracts, integration points, and product flows, or for self-critical building and rewrites validated against up-to-date, authoritative references."
 metadata:
   author: "Leeor Nahum"
-  version: "1.2.1"
+  version: "1.3.0"
 ---
 
 # Monolith Audit
@@ -50,11 +50,15 @@ Verify the present code against authoritative documentation for every service it
 - Execute all of their rules, especially the design, naming, and maintenance rules that touch the layers you are working in.
 - Apply the user-facing and design-coherence checks to all text, journeys, UI, and UX, walking a real end-to-end scenario.
 
-## Step 4: Confirm With Subagents
+## Step 4: Confirm With Adversarial Subagents
 
-- Recursively assign subagents to independently verify complex, cross-cutting, or niche findings.
-- Separate the surface among agents for parallel, unbiased evaluation. No single context is comprehensive enough for a true monolith pass.
-- Only claim a finding with direct evidence: a file, a first-party doc, or a reproduced interaction.
+The builder never grades its own work. Every pass of this skill runs at least two independent checks before anything is called done, and waits for each check to return before ending the turn, because a session that ends while a critic is still running has skipped it:
+
+- **An adversarial critic from a different provider than the builder**, or that provider's next-best model when only one provider is reachable, told plainly that its job is to find what is wrong, not to validate. It receives the goal, the changed files and their callers, every instruction the builder was given, the skills, the AGENTS.md files, the user's own words, and the first-party docs from Step 2. It does not receive the builder's justifications for its choices, so it judges the work against the goal rather than against the story told about it. The builder gives its reasoning in the answer round. It returns a ranked list with the evidence for each finding, and where it sees a better shape for the work than the one built, it says so as a proposal. A critic from the builder's own model shares its blind spots, so the distance is the point.
+- **A separate anti-backrooms pass over anything the change produces that someone or something will read or look at**, by a model that can see the rendered result where there is one. It applies the anti-backrooms skill, installed or read from the RemoteSkill catalog, judges the result rather than the source, and reports what reads wrong, not what the code says.
+- Recursively assign further subagents to complex, cross-cutting, or niche findings, and split the surface among them. No single context is comprehensive enough for a true monolith pass.
+- Only claim a finding with direct evidence: a file, a first-party doc, or a reproduced interaction. The builder answers every finding and every proposal in writing, and a refusal with a reason is a valid answer. A finding read and not answered launders the decision.
+- The answer goes back to the same critic, resumed by its session id so it keeps its context, and it says which findings it withdraws and which it holds. Two rounds settle most disagreements. What is still held after that goes to the user as an open point, not silently dropped.
 
 ## Step 5: Cover Every Layer In Depth
 
@@ -80,7 +84,7 @@ For each change, map every upstream and downstream caller, the possible failures
 After applying changes, do not move on. Re-read every changed file and its callers:
 
 - Confirm the change matches the intended contract, introduces no new smell, and aligns with installed skill rules and first-party documentation.
-- Spawn a fresh subagent or checker pass over the edited areas if the change was non-trivial.
+- Spawn a fresh adversarial critic over the edited areas if the change was non-trivial, chosen as in Step 4, and the anti-backrooms pass again over anything readable that changed.
 - Catch regressions, partial fixes, and newly exposed issues before declaring a layer clean.
 
 ## Step 8: Close Out

@@ -3,7 +3,7 @@ name: "monolith-audit"
 description: "Build or audit a body of work to rigorous, present-day correctness: ground in the live code, verify every external assumption at the source, and eliminate or never introduce anything broken, obsolete, duplicated, incoherent, or worked-around. Runs whole-repo when invoked bare, or appended to a specific task or focus (a feature, fix, subsystem, surface, or file set), where it holds that task and everything in its blast radius to the same standard so the work is done right in one pass rather than patched and audited later. This skill is strictly manual and must only be invoked by name, Monolith Audit (MA). When invoked, load this skill and follow it for deep, whole-product correctness, cleanliness, and coherence work across backend, data, APIs, protocols, frontend, UI, UX, copy, configuration, environment contracts, integration points, and product flows, or for self-critical building and rewrites validated against up-to-date, authoritative references."
 metadata:
   author: "Leeor Nahum"
-  version: "1.3.0"
+  version: "1.4.0"
 ---
 
 # Monolith Audit
@@ -59,6 +59,9 @@ The builder never grades its own work. Every pass of this skill runs at least tw
 - Recursively assign further subagents to complex, cross-cutting, or niche findings, and split the surface among them. No single context is comprehensive enough for a true monolith pass.
 - Only claim a finding with direct evidence: a file, a first-party doc, or a reproduced interaction. The builder answers every finding and every proposal in writing, and a refusal with a reason is a valid answer. A finding read and not answered launders the decision.
 - The answer goes back to the same critic, resumed by its session id so it keeps its context, and it says which findings it withdraws and which it holds. Two rounds settle most disagreements. What is still held after that goes to the user as an open point, not silently dropped.
+- Run this loop per unit of work, not once per release. Tell the critic to separate what blocks delivery from what should merely be recorded, and to write findings to a file as it confirms them, verdict first, so a run that dies still leaves its report.
+- Aim later rounds at the seams. Each unit is verified alone, so where two verified units meet is the part nobody has reviewed, and it is where the real defects live.
+- Expect briefs to undercount. When a critic names several instances of a problem, ask why the rule was enforced per caller, and find the others. Prefer moving the rule to one place every caller must cross, such as a single record or gate, over adding the same check at one more place.
 
 ## Step 5: Cover Every Layer In Depth
 
@@ -86,6 +89,10 @@ After applying changes, do not move on. Re-read every changed file and its calle
 - Confirm the change matches the intended contract, introduces no new smell, and aligns with installed skill rules and first-party documentation.
 - Spawn a fresh adversarial critic over the edited areas if the change was non-trivial, chosen as in Step 4, and the anti-backrooms pass again over anything readable that changed.
 - Catch regressions, partial fixes, and newly exposed issues before declaring a layer clean.
+
+**Mutation-check the guards that support the verdict.** In an isolated test copy, break a guard, check that its test fails for that defect, then restore it. A surviving mutation exposes a gap in the test's evidence. Strengthen the test before trusting its claim, and retain any required runtime protection. Bound the run so a hang or resource failure remains a distinct result, not proof that the test caught the defect.
+
+Assume some checks verify something adjacent to what they claim, because that failure is common and invisible. Ask of each check what would have to be true for it to pass while the thing it names is broken, and close that gap before trusting it.
 
 ## Step 8: Close Out
 

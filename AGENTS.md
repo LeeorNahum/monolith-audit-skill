@@ -15,7 +15,7 @@ Rules for editing this skill. User-facing guidance lives in `SKILL.md`. `README.
 - Keep it generic and placeholder-only. No real repo, vendor, provider, protocol, or project names belong in `SKILL.md`. Project-specific anchors (a docs URL, a directory to focus, a stack) live in the prompt that invokes the skill, never here.
 - Describe the function of any supporting tool generically: an agent-skills bridge generator, a skill sync, a design-coherence pass. Never name a specific sibling skill or product.
 - Keep `SKILL.md` direct and short. This is a high-altitude methodology, not a tutorial. Prefer deleting a line over softening it.
-- Bump `metadata.version` with semver whenever behavior changes.
+- Bump `metadata.version` by the release-versioning skill's rules for skills.
 - Quote every frontmatter string value. Keys stay unquoted.
 - No em dashes, and no semicolons used to join what should be separate sentences. Use commas, periods, parentheses, or "to".
 - Capitalized bullets, parallel phrasing.
@@ -24,5 +24,5 @@ Rules for editing this skill. User-facing guidance lives in `SKILL.md`. `README.
 
 - No real repo, vendor, or project names snuck into `SKILL.md` or `README.md`.
 - Manual-only stance still lives only in the `description` text, never as a frontmatter key.
-- `metadata.version` bumped if and only if behavior changed.
+- `metadata.version` bumped as the release-versioning skill requires.
 - `README.md` matches the actual file layout.

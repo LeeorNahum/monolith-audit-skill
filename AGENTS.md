@@ -13,7 +13,7 @@ Rules for editing this skill. User-facing guidance lives in `SKILL.md`. `README.
 
 - Keep it manual-only. There is no frontmatter flag for this: manual-only behavior must live entirely in the `description` text (it already states the skill is strictly manual and must only be invoked by name). Never add a frontmatter key outside the six the specification defines to try to enforce this.
 - Keep it generic and placeholder-only. No real repo, vendor, provider, protocol, or project names belong in `SKILL.md`. Project-specific anchors (a docs URL, a directory to focus, a stack) live in the prompt that invokes the skill, never here.
-- Describe the function of any supporting tool generically: an agent-skills bridge generator, a skill sync, a design-coherence pass. Never name a specific sibling skill or product.
+- Name and link two sibling skills by their public share addresses, so an agent without them installed can still read them: subagent-spawn-book for choosing and spawning the critic, and anti-backrooms for the pass over what the change produces. Describe every other supporting tool by its function, such as an agent-skills bridge generator or a skill sync, and name no other sibling skill or product.
 - Keep `SKILL.md` direct and short. This is a high-altitude methodology, not a tutorial. Prefer deleting a line over softening it.
 - Bump `metadata.version` by the release-versioning skill's rules for skills.
 - Quote every frontmatter string value. Keys stay unquoted.

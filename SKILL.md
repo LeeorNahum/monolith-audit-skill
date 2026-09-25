@@ -1,9 +1,9 @@
 ---
 name: "monolith-audit"
-description: "Build or audit a body of work to rigorous, present-day correctness: ground in the live code, verify every external assumption at the source, and eliminate or never introduce anything broken, obsolete, duplicated, incoherent, or worked-around. Runs whole-repo when invoked bare, or appended to a specific task or focus (a feature, fix, subsystem, surface, or file set), where it holds that task and everything in its blast radius to the same standard so the work is done right in one pass rather than patched and audited later. This skill is strictly manual and must only be invoked by name, Monolith Audit (MA). When invoked, load this skill and follow it for deep, whole-product correctness, cleanliness, and coherence work across backend, data, APIs, protocols, frontend, UI, UX, copy, configuration, environment contracts, integration points, and product flows, or for self-critical building and rewrites validated against up-to-date, authoritative references."
+description: "Build or audit a body of work to rigorous, present-day correctness: ground in the live code, verify every external assumption at the source, and eliminate or never introduce anything broken, obsolete, duplicated, incoherent, or worked-around. Runs whole-repo when invoked bare, or appended to a specific task or focus (a feature, fix, subsystem, surface, or file set), where it holds that task and everything in its blast radius to the same standard so the work is done right in one pass rather than patched and audited later. This skill is strictly manual and must only be invoked by name, Monolith Audit. When invoked, load this skill and follow it for deep, whole-product correctness, cleanliness, and coherence work across backend, data, APIs, protocols, frontend, UI, UX, copy, configuration, environment contracts, integration points, and product flows, or for self-critical building and rewrites validated against up-to-date, authoritative references."
 metadata:
   author: "Leeor Nahum"
-  version: "1.4.0"
+  version: "1.5.0"
 ---
 
 # Monolith Audit
@@ -89,6 +89,7 @@ After applying changes, do not move on. Re-read every changed file and its calle
 - Confirm the change matches the intended contract, introduces no new smell, and aligns with installed skill rules and first-party documentation.
 - Spawn a fresh adversarial critic over the edited areas if the change was non-trivial, chosen as in Step 4, and the anti-backrooms pass again over anything readable that changed.
 - Catch regressions, partial fixes, and newly exposed issues before declaring a layer clean.
+- Map every explicit intention and requirement the user stated to where it is met on each affected surface, integration, contract, and test, whether or not the user named that surface. A requirement that is missing from any of those places is not done.
 
 **Mutation-check the guards that support the verdict.** In an isolated test copy, break a guard, check that its test fails for that defect, then restore it. A surviving mutation exposes a gap in the test's evidence. Strengthen the test before trusting its claim, and retain any required runtime protection. Bound the run so a hang or resource failure remains a distinct result, not proof that the test caught the defect.
 

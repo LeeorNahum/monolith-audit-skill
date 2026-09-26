@@ -3,7 +3,7 @@ name: "monolith-audit"
 description: "Build or audit a body of work to rigorous, present-day correctness: ground in the live code, verify every external assumption at the source, and eliminate or never introduce anything broken, obsolete, duplicated, incoherent, or worked-around. Runs whole-repo when invoked bare, or appended to a specific task or focus (a feature, fix, subsystem, surface, or file set), where it holds that task and everything in its blast radius to the same standard so the work is done right in one pass rather than patched and audited later. This skill is strictly manual and must only be invoked by name, Monolith Audit. When invoked, load this skill and follow it for deep, whole-product correctness, cleanliness, and coherence work across backend, data, APIs, protocols, frontend, UI, UX, copy, configuration, environment contracts, integration points, and product flows, or for self-critical building and rewrites validated against up-to-date, authoritative references."
 metadata:
   author: "Leeor Nahum"
-  version: "1.6.1"
+  version: "1.7.0"
 ---
 
 # Monolith Audit
@@ -55,7 +55,7 @@ Verify the present code against authoritative documentation for every service it
 The builder never grades its own work. Every pass of this skill runs at least two independent checks before anything is called done, and waits for each check to return before ending the turn, because a session that ends while a critic is still running has skipped it:
 
 - **An adversarial critic from a different provider than the builder**, or that provider's next-best model when only one provider is reachable, chosen and spawned by the subagent-spawn-book skill, installed or read at [![subagent-spawn-book on RemoteSkill](https://remoteskill.md/subagent-spawn-book-3XELJKmGsF1U/badge.svg)](https://remoteskill.md/subagent-spawn-book-3XELJKmGsF1U), and told plainly that its job is to find what is wrong, not to validate. It receives the goal, the changed files and their callers, every instruction the builder was given, the skills, the AGENTS.md files, the user's own words, and the first-party docs from Step 2. It does not receive the builder's justifications for its choices, so it judges the work against the goal rather than against the story told about it. The builder gives its reasoning in the answer round. It returns a ranked list with the evidence for each finding, and where it sees a better shape for the work than the one built, it says so as a proposal. A critic from the builder's own model shares its blind spots, so the distance is the point.
-- **A separate anti-backrooms pass over everything the change produces**, by a model that can see the rendered result where there is one. It applies the anti-backrooms skill, installed or read at [![anti-backrooms on RemoteSkill](https://remoteskill.md/anti-backrooms-9tQgwGsGh24y/badge.svg)](https://remoteskill.md/anti-backrooms-9tQgwGsGh24y), judges the result rather than the source, and reports what reads wrong, not what the code says.
+- **A separate anti-backrooms pass over everything the change produces**, by a model that can see the rendered result where there is one. When the work has an effect at runtime, first operate it once for real the way its users will, launching, clicking, and typing through the path they take, and give the pass that actual result beside the same thing produced the normal way. Source review and format validation both miss what only the running result shows. It applies the anti-backrooms skill, installed or read at [![anti-backrooms on RemoteSkill](https://remoteskill.md/anti-backrooms-9tQgwGsGh24y/badge.svg)](https://remoteskill.md/anti-backrooms-9tQgwGsGh24y), judges the result rather than the source, and reports what reads wrong, not what the code says.
 - Recursively assign further subagents to complex, cross-cutting, or niche findings, and split the surface among them. No single context is comprehensive enough for a true monolith pass.
 - Only claim a finding with direct evidence: a file, a first-party doc, or a reproduced interaction. The builder answers every finding and every proposal in writing, and a refusal with a reason is a valid answer. A finding read and not answered launders the decision.
 - The answer goes back to the same critic, resumed by its session id so it keeps its context, and it says which findings it withdraws and which it holds. Two rounds settle most disagreements. What is still held after that goes to the user as an open point, not silently dropped.
@@ -74,6 +74,8 @@ Vigilantly check, as you build and as you review, for code that is broken, obsol
 - Authentication, identity, and capability checks
 - Environment contracts and stage isolation
 - Background work, failure modes, and retries
+
+When the work is not code, such as a document, an instruction set, a design, or a skill, its layers are the claims it makes, the steps it tells a reader to take, and every surface those steps run on, and each is held to the same standard.
 
 For each change, map every upstream and downstream caller, the possible failures, and what future maintenance will assume about the behavior.
 

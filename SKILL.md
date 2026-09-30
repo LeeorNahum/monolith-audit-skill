@@ -3,7 +3,7 @@ name: "monolith-audit"
 description: "Build or audit a body of work to rigorous, present-day correctness: ground in the live code, verify every external assumption at the source, and eliminate or never introduce anything broken, obsolete, duplicated, incoherent, or worked-around. Runs whole-repo when invoked bare, or appended to a specific task or focus (a feature, fix, subsystem, surface, or file set), where it holds that task and everything in its blast radius to the same standard so the work is done right in one pass rather than patched and audited later. This skill is strictly manual and must only be invoked by name, Monolith Audit. When invoked, load this skill and follow it for deep, whole-product correctness, cleanliness, and coherence work across backend, data, APIs, protocols, frontend, UI, UX, copy, configuration, environment contracts, integration points, and product flows, or for self-critical building and rewrites validated against up-to-date, authoritative references."
 metadata:
   author: "Leeor Nahum"
-  version: "1.7.0"
+  version: "1.8.0"
 ---
 
 # Monolith Audit
@@ -44,9 +44,9 @@ Verify the present code against authoritative documentation for every service it
 - Seek working example code and reference implementations for ambiguous or critical behaviors, because prose docs often leave key details unstated.
 - Treat as a defect any assumption the canonical docs or examples do not fully support.
 
-## Step 3: Apply All Installed Skills
+## Step 3: Apply Every Applicable Skill
 
-- Read every installed skill, system-wide and in any nested tree, from top to bottom, including every reference file it carries. Bias hard toward loading: read all of them in full, not a curated subset, because reading deeply is cheap and acting on a topic blind is not.
+- Read every skill that applies to the work, wherever it is available (system-wide, in any nested tree, or served by a connected skill library), from top to bottom, including every reference file it carries. Bias hard toward loading: when a skill might apply, read it in full, never a skim or its description alone, because reading deeply is cheap and acting on a topic blind is not.
 - Execute all of their rules, especially the design, naming, and maintenance rules that touch the layers you are working in.
 - Apply the user-facing and design-coherence checks to all text, journeys, UI, and UX, walking a real end-to-end scenario.
 
@@ -88,7 +88,7 @@ For each change, map every upstream and downstream caller, the possible failures
 
 After applying changes, do not move on. Re-read every changed file and its callers:
 
-- Confirm the change matches the intended contract, introduces no new smell, and aligns with installed skill rules and first-party documentation.
+- Confirm the change matches the intended contract, introduces no new smell, and aligns with applicable skill rules and first-party documentation.
 - Spawn a fresh adversarial critic over the edited areas if the change was non-trivial, chosen as in Step 4, and the anti-backrooms pass again over everything that changed.
 - Catch regressions, partial fixes, and newly exposed issues before declaring a layer clean.
 - Map every explicit intention and requirement the user stated to where it is met on each affected surface, integration, contract, and test, whether or not the user named that surface. A requirement that is missing from any of those places is not done.

@@ -3,7 +3,7 @@ name: "monolith-audit"
 description: "Think a piece of work through before it is built, or examine one that already exists, as the colleague who pushes back. Takes a vague idea, a plan, or a finished body of work of any kind, such as software, a document, an agreement, an assignment, a model, or a skill, forms an opinion on it against the whole it belongs to, looks up whatever looking can settle, hunts for what is wrong along with the fix for each problem, including security holes and wasted work, and puts each real decision to the user one question at a time. It ends in a short agreed brief, never a long plan, and does not carry out what needs implementing. This skill is strictly manual and must only be invoked by name, Monolith Audit."
 metadata:
   author: "Leeor Nahum"
-  version: "2.1.0"
+  version: "2.2.0"
 ---
 
 # Monolith Audit
@@ -50,7 +50,7 @@ When there is existing work, find its problems and the fix for each.
 
 ## Step 4: Put It In Front Of Others
 
-Your own conclusions read as sound to you. Before the user relies on them, have them judged by sessions that did not produce them. Loading a skill, or rereading your own conclusions against it, is not this step. Where the subagent-spawn-book skill is available, installed or read at [![subagent-spawn-book on RemoteSkill](https://remoteskill.md/subagent-spawn-book-3XELJKmGsF1U/badge.svg)](https://remoteskill.md/subagent-spawn-book-3XELJKmGsF1U), it chooses and spawns each of them, one per provider that can be reached. Each runs its provider's strongest model of the kind it uses by default, never one above that unless the user names it.
+Your own conclusions read as sound to you. Before the user relies on them, have them judged by sessions that did not produce them. Loading a skill, or rereading your own conclusions against it, is not this step. Where the subagent-spawn-book skill is available, installed or read at [![subagent-spawn-book on RemoteSkill](https://remoteskill.md/subagent-spawn-book-3XELJKmGsF1U/badge.svg)](https://remoteskill.md/subagent-spawn-book-3XELJKmGsF1U), it chooses and spawns each of them, one per provider that can be reached. Each runs its provider's model from the flagship tier (the tier for important work) unless the user names another tier. Where the subagent-spawn-book skill is not available, the strongest model of the kind each provider uses by default stands for flagship, and a named lighter tier means a lighter model from the same provider. A provider is unreachable when it is not installed, signed out, or refuses for a usage, quota, or rate limit.
 
 - **A partner for a plan.** One fresh session receives what you intend to propose and ask, the goal, the user's own words, and the material you drew on, and none of your reasoning. It reads the proposal and the questions first, as the user will meet them, before the rest, and flags wording carried over from that material that the user would not use or need. It says what it would change or improve and what is incoherent, as something no real reader could act on, applying the anti-backrooms skill where it is available. Answer each point, adopt what holds up, and take a disagreement back to it once before bringing it to the user.
 - **A panel for existing work, and for choosing between alternatives.** Several sessions get the same material and the same question, fixed before any of them runs, and none sees another's answer or yours.
